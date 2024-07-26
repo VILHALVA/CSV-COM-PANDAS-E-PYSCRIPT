@@ -1,0 +1,79 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#csv {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto; 
+    max-width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
+
+@media (max-width: 600px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        text-align: right;
+    }
+
+    td {
+        text-align: right;
+        display: block;
+        position: relative;
+        padding-left: 50%;
+        box-sizing: border-box;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+}

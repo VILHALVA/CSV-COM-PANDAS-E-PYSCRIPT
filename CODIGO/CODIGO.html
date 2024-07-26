@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <link rel="stylesheet" href="./CODIGO.css">
+    <py-env>- pandas</py-env>
+</head>
+<body>
+    <div id="content">
+        <h1>READ CSV WITH PANDAS USING PYSCRIPT</h1>
+        <p id="csv"></p>
+    </div>
+    <py-script>
+        import pandas as pd 
+        from pyodide.http import open_url
+        url_content = open_url("http://localhost:8000/DATABASE.csv")
+        df = pd.read_csv(url_content, delimiter=';')
+
+        html_table = df.head().to_html(classes='table')
+
+        csv = Element('csv')
+        csv.write(html_table)
+    </py-script>
+</body>
+</html>
